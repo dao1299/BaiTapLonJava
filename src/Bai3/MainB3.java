@@ -42,8 +42,9 @@ public class MainB3 {
     public void case5(){
 
         for (int i=0;i<listHD.size();i++){
-            System.out.println("Hoa Don "+i+" :");
+            System.out.print("-----------------");
             listHD.get(i).xuat();
+            System.out.println("-----------------");
         }
     }
 

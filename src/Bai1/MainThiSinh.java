@@ -25,9 +25,9 @@ public class MainThiSinh {
             System.out.print("Chon: ");
             chon = scanner.nextInt();
             switch (chon) {
-                case 1:
+                case 1: //Thêm danh sách
                     System.out.println("-----------------------------");
-                    System.out.print("Nhap so luong thi sinh: ");
+                    System.out.print("Nhập số lượng thí sinh muốn thêm: ");
                     soLuongThiSinh += scanner.nextInt();
                     for (int i = 0; i < soLuongThiSinh; i++) {
                         ThiSinhC temp = new ThiSinhC();
@@ -35,19 +35,19 @@ public class MainThiSinh {
                         listThiSinh.add(temp);
                     }
                     break;
-                case 2:
+                case 2://In danh sách
                     System.out.println("-----------------------------");
-                    System.out.println("Danh sach thi sinh: ");
+                    System.out.println("Danh sách thí sinh: ");
                     for (ThiSinhC x : listThiSinh) {
                         x.OutputThiSinhCToScreen();
                     }
                     break;
-                case 3:
+                case 3://Tìm kiếm
                     System.out.println("-----------------------------");
-                    System.out.println("1. Tim kiem theo ten");
-                    System.out.println("2. Tim kiem theo khoa");
-                    System.out.println("3. Tim kiem theo diem");
-                    System.out.print("Chon: ");
+                    System.out.println("1. Tìm kiếm theo tên");
+                    System.out.println("2. Tìm kiếm theo khoa");
+                    System.out.println("3. Tìm kiếm theo điểm");
+                    System.out.print("Chọn: ");
                     int c = scanner.nextInt();
                     int count;
                     switch (c) {
@@ -55,10 +55,10 @@ public class MainThiSinh {
                             System.out.println("--------------------------");
                             count = 0;
                             scanner.nextLine();
-                            System.out.println("Nhap ten: ");
+                            System.out.println("Nhập tên muốn tìm: ");
                             String tenS = scanner.nextLine();
                             System.out.println("---------------------------");
-                            System.out.println("Ket qua tim kiem: ");
+                            System.out.println("Kết quả tìm kiếm: ");
                             for (ThiSinhC x : listThiSinh) {
                                 if (x.getHoTen().toLowerCase().contains(tenS.toLowerCase())) {
                                     x.OutputThiSinhCToScreen();
@@ -66,17 +66,17 @@ public class MainThiSinh {
                                 }
                             }
                             if (count == 0) {
-                                System.out.println("Khong co");
+                                System.out.println("Không có");
                             }
                             break;
                         case 2:
                             System.out.println("--------------------------");
                             count = 0;
                             scanner.nextLine();
-                            System.out.println("Nhap khoa: ");
+                            System.out.println("Nhập tên khoa: ");
                             String khoaS = scanner.nextLine();
                             System.out.println("---------------------------");
-                            System.out.println("Ket qua tim kiem: ");
+                            System.out.println("Kết quả tìm kiếm: ");
                             for (ThiSinhC x : listThiSinh) {
                                 if (x.getKhoa().toLowerCase().contains(khoaS.toLowerCase())) {
                                     x.OutputThiSinhCToScreen();
@@ -141,16 +141,204 @@ public class MainThiSinh {
                     listThiSinh.get(listThiSinh.size() - 1).OutputThiSinhCToScreen();
                     break;
                 case 6:
-                    System.out.println("");
+                    System.out.println("1. Đếm theo điều kiện điểm 1.");
+                    System.out.println("2. Đếm theo điều kiện điểm 2.");
+                    System.out.println("3. Đếm theo điều kiện điểm 3.");
+                    System.out.println("4. Đếm theo điều kiện tổng điểm.");
+                    System.out.print("Mời bạn chọn: ");
+                    int chon6=scanner.nextInt();
+                    int count6=0;
+                    float value;
+                    switch (chon6){
+                        case 1:
+                            System.out.println("1. Đếm theo nhỏ hơn");
+                            System.out.println("2. Đếm theo lớn hơn");
+                            System.out.println("3. Đếm theo bằng");
+                            System.out.print("Mời bạn chọn: ");
+                            chon6=scanner.nextInt();
+                            System.out.print("Mời bạn nhập giá trị: ");
+                            value=scanner.nextFloat();
+                            switch (chon6){
+                                case 1:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem1()<value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 1 nhở hơn "+value+": "+count6);
+                                    break;
+                                case 2:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem1()>value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 1 lớn hơn "+value+": "+count6);
+                                    break;
+                                case 3:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem1()==value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 1 bằng "+value+": "+count6);
+                                    break;
+                                default:
+                                    System.out.println("Chọn lại!");
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            System.out.println("1. Đếm theo nhỏ hơn");
+                            System.out.println("2. Đếm theo lớn hơn");
+                            System.out.println("3. Đếm theo bằng");
+                            System.out.print("Mời bạn chọn: ");
+                            chon6=scanner.nextInt();
+                            System.out.print("Mời bạn nhập giá trị: ");
+                            value=scanner.nextFloat();
+                            switch (chon6){
+                                case 1:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem2()<value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 2 nhỏ hơn "+value+": "+count6);
+                                    break;
+                                case 2:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem2()>value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 2 lớn hơn "+value+": "+count6);
+                                    break;
+                                case 3:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem2()==value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 2 bằng "+value+": "+count6);
+                                    break;
+                                default:
+                                    System.out.println("Chọn lại!");
+                                    break;
+                            }
+                            break;
+                        case 3:
+                            System.out.println("1. Đếm theo nhỏ hơn");
+                            System.out.println("2. Đếm theo lớn hơn");
+                            System.out.println("3. Đếm theo bằng");
+                            System.out.print("Mời bạn chọn: ");
+                            chon6=scanner.nextInt();
+                            System.out.print("Mời bạn nhập giá trị: ");
+                            value=scanner.nextFloat();
+
+                            switch (chon6){
+                                case 1:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem3()<value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 3 nhỏ hơn "+value+": "+count6);
+                                    break;
+                                case 2:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem3()>value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 3 lớn hơn "+value+": "+count6);
+                                    break;
+                                case 3:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.getDiem3()==value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có điểm 3 bằng "+value+": "+count6);
+                                    break;
+                                default:
+                                    System.out.println("Chọn lại!");
+                                    break;
+                            }
+                            break;
+                        case 4:
+                            System.out.println("1. Đếm theo nhỏ hơn");
+                            System.out.println("2. Đếm theo lớn hơn");
+                            System.out.println("3. Đếm theo bằng");
+                            System.out.print("Mời bạn chọn: ");
+                            chon6=scanner.nextInt();
+                            System.out.print("Mời bạn nhập giá trị: ");
+                            value=scanner.nextFloat();
+
+                            switch (chon6){
+                                case 1:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.TongDiem()<value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có tổng điểm nhỏ hơn "+value+": "+count6);
+                                    break;
+                                case 2:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.TongDiem()>value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có tổng điểm lớn hơn "+value+": "+count6);
+                                    break;
+                                case 3:
+                                    System.out.println("----------------------------");
+                                    count6=0;
+                                    for (ThiSinhC x:listThiSinh){
+                                        if (x.TongDiem()==value){
+                                            count6+=1;
+                                        }
+                                    }
+                                    System.out.println("Số lượng thí sinh có tổng điểm bằng "+value+": "+count6);
+                                    break;
+                                default:
+                                    System.out.println("Chọn lại!");
+                                    break;
+                            }
+                            break;
+                        default:
+                            System.out.println("Chọn lại!");
+                            break;
+                    }
                     break;
                 case 7:
                     System.out.println("-----------------------------");
                     try {
                         FileOutputStream fos = new FileOutputStream("thisinh.txt");
                         ObjectOutputStream fout = new ObjectOutputStream(fos);
-                        for (ThiSinhC x : listThiSinh) {
-                            fout.writeObject(x);
-                        }
+                        fout.writeObject(listThiSinh);
                         fout.close();
                         fos.close();
                     } catch (IOException e) {
@@ -164,22 +352,19 @@ public class MainThiSinh {
                     try {
                         FileInputStream fileInputStream = new FileInputStream("thisinh.txt");
                         ObjectInputStream fin = new ObjectInputStream(fileInputStream);
-                        //ArrayList<ThiSinhC> tempRead = (ArrayList<ThiSinhC>)fin.readObject();
-                        //listThiSinh.add((ThiSinhC)fin.readObject());
-                        ArrayList<ThiSinhC> ListRead = new ArrayList<>();
-                        ListRead=(ArrayList<ThiSinhC>)fin.readObject();
+                        ArrayList<ThiSinhC> ListReadFromFile = (ArrayList<ThiSinhC>)fin.readObject();
                         System.out.println("Ban co muon chen danh sach vua doc vao danh sach hien tai: ");
                         System.out.println("1. Co");
                         System.out.println("2. Khong");
                         int chonAdd = scanner.nextInt();
                         if (chonAdd == 1) {
-                            listThiSinh.addAll(ListRead);
+                            listThiSinh.addAll(ListReadFromFile);
                         } else {
 
                         }
                         fin.close();
                         fileInputStream.close();
-                    } catch (IOException | ClassNotFoundException e) {
+                    } catch (IOException e) {
                         System.out.println(e);
                     }
                     break;
@@ -187,7 +372,7 @@ public class MainThiSinh {
                     System.out.println("Ban da thoat! ");
                     break;
                 default:
-                    System.exit(0);
+                    System.out.println("Chọn lại!");
                     break;
             }
         } while (chon != 0);

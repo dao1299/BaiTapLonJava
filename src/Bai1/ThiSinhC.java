@@ -34,6 +34,22 @@ public class ThiSinhC extends ThiSinh implements Comparable<ThiSinhC>, Serializa
                 ", diem3=" + diem3 ;
         return x;
     }
+
+    //@Override
+//    public String toString() {
+//        return "ThiSinhC{" +
+//                "hoTen='" + super.getHoTen() + '\'' +
+//                ", ngaySinh='" + super.getNgaySinh() + '\'' +
+//                ", diaChi='" + super.getDiaChi() + '\'' +
+//                ", dienThoai='" + super.getDienThoai() + '\'' +
+//                ", email='" + super.getEmail() + ',' +
+//                "khoa='" + khoa + '\'' +
+//                ", diem1=" + diem1 +
+//                ", diem2=" + diem2 +
+//                ", diem3=" + diem3 +
+//                '}';
+//    }
+
     public void OutputThiSinhCToScreen(){
         OutputThiSinhToScreen();
         System.out.print(", khoa='" + khoa + '\'' +

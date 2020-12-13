@@ -32,6 +32,7 @@ public class HoaDon implements Comparable<HoaDon>{
         for (HangHoa x:listHH){
             x.xuat();
         }
+        System.out.println("Tong tien: "+this.tongTien());
     }
     public float tongTien(){
         float tong=0;
