@@ -27,7 +27,11 @@ public class MainThiSinh {
             switch (chon) {
                 case 1: //Thêm danh sách
                     System.out.println("-----------------------------");
-                    System.out.print("Nhập số lượng thí sinh muốn thêm: ");
+                    int n;
+                    do {
+                        System.out.print("Nhập số lượng thí sinh muốn thêm: ");
+                        n = scanner.nextInt();
+                    }while (n<0);
                     soLuongThiSinh += scanner.nextInt();
                     for (int i = 0; i < soLuongThiSinh; i++) {
                         ThiSinhC temp = new ThiSinhC();
@@ -47,8 +51,12 @@ public class MainThiSinh {
                     System.out.println("1. Tìm kiếm theo tên");
                     System.out.println("2. Tìm kiếm theo khoa");
                     System.out.println("3. Tìm kiếm theo điểm");
-                    System.out.print("Chọn: ");
-                    int c = scanner.nextInt();
+                    int c;
+                    do{
+                        System.out.print("Chọn: ");
+                        c = scanner.nextInt();
+                    }while (c<1 || c>3);
+
                     int count;
                     switch (c) {
                         case 1:
@@ -89,15 +97,18 @@ public class MainThiSinh {
                             break;
                         case 3:
                             System.out.println("--------------------------");
-                            System.out.println("Nhap diem: ");
+                            System.out.println("Nhập điểm: ");
                             float diemTimKiem = scanner.nextFloat();
-                            System.out.println("1. Tim kiem chinh xac");
-                            System.out.println("2. Tim kiem lon hon");
-                            System.out.println("3. Tim kiem nho hon");
-                            System.out.println("Chon: ");
-                            int chonSearchDiem = scanner.nextInt();
+                            System.out.println("1. Tìm kiếm chính xác");
+                            System.out.println("2. Tìm kiếm lớn hơn");
+                            System.out.println("3. Tìm kiếm nhỏ hơn");
+                            int chonSearchDiem;
+                            do{
+                                System.out.println("Chọn: ");
+                                chonSearchDiem= scanner.nextInt();
+                            }while (chonSearchDiem<0 || chonSearchDiem>3);
                             System.out.println("--------------------------");
-                            System.out.println("Ket qua tim kiem: ");
+                            System.out.println("Kết quả tìm kiếm: ");
                             switch (chonSearchDiem) {
                                 case 1:
                                     for (ThiSinhC x : listThiSinh) {
@@ -129,7 +140,7 @@ public class MainThiSinh {
                 case 4:
                     System.out.println("-----------------------------");
                     Collections.sort(listThiSinh);
-                    System.out.println("Danh sach thi sinh sau khi sap xep tang dan ve tong diem:");
+                    System.out.println("Danh sách thí sinh sau khi sắp xếp tăng dần về tổng điểm");
                     for (ThiSinhC x : listThiSinh) {
                         x.OutputThiSinhCToScreen();
                     }
@@ -137,7 +148,7 @@ public class MainThiSinh {
                 case 5:
                     System.out.println("-----------------------------");
                     Collections.sort(listThiSinh);
-                    System.out.println("Thi sinh co tong diem lon nhat: ");
+                    System.out.println("Thí sinh có tổng điểm cao nhất: ");
                     listThiSinh.get(listThiSinh.size() - 1).OutputThiSinhCToScreen();
                     break;
                 case 6:
@@ -145,8 +156,11 @@ public class MainThiSinh {
                     System.out.println("2. Đếm theo điều kiện điểm 2.");
                     System.out.println("3. Đếm theo điều kiện điểm 3.");
                     System.out.println("4. Đếm theo điều kiện tổng điểm.");
-                    System.out.print("Mời bạn chọn: ");
-                    int chon6=scanner.nextInt();
+                    int chon6;
+                    do {
+                        System.out.print("Mời bạn chọn: ");
+                        chon6=scanner.nextInt();
+                    }while(chon6<1||chon6>4);
                     int count6=0;
                     float value;
                     switch (chon6){
@@ -154,8 +168,10 @@ public class MainThiSinh {
                             System.out.println("1. Đếm theo nhỏ hơn");
                             System.out.println("2. Đếm theo lớn hơn");
                             System.out.println("3. Đếm theo bằng");
-                            System.out.print("Mời bạn chọn: ");
-                            chon6=scanner.nextInt();
+                            do {
+                                System.out.print("Mời bạn chọn: ");
+                                chon6=scanner.nextInt();
+                            }while(chon6<1||chon6>3);
                             System.out.print("Mời bạn nhập giá trị: ");
                             value=scanner.nextFloat();
                             switch (chon6){
@@ -198,8 +214,10 @@ public class MainThiSinh {
                             System.out.println("1. Đếm theo nhỏ hơn");
                             System.out.println("2. Đếm theo lớn hơn");
                             System.out.println("3. Đếm theo bằng");
-                            System.out.print("Mời bạn chọn: ");
-                            chon6=scanner.nextInt();
+                            do {
+                                System.out.print("Mời bạn chọn: ");
+                                chon6=scanner.nextInt();
+                            }while(chon6<1||chon6>3);
                             System.out.print("Mời bạn nhập giá trị: ");
                             value=scanner.nextFloat();
                             switch (chon6){
@@ -242,8 +260,10 @@ public class MainThiSinh {
                             System.out.println("1. Đếm theo nhỏ hơn");
                             System.out.println("2. Đếm theo lớn hơn");
                             System.out.println("3. Đếm theo bằng");
-                            System.out.print("Mời bạn chọn: ");
-                            chon6=scanner.nextInt();
+                            do {
+                                System.out.print("Mời bạn chọn: ");
+                                chon6=scanner.nextInt();
+                            }while(chon6<1||chon6>3);
                             System.out.print("Mời bạn nhập giá trị: ");
                             value=scanner.nextFloat();
 
@@ -287,8 +307,10 @@ public class MainThiSinh {
                             System.out.println("1. Đếm theo nhỏ hơn");
                             System.out.println("2. Đếm theo lớn hơn");
                             System.out.println("3. Đếm theo bằng");
-                            System.out.print("Mời bạn chọn: ");
-                            chon6=scanner.nextInt();
+                            do {
+                                System.out.print("Mời bạn chọn: ");
+                                chon6=scanner.nextInt();
+                            }while(chon6<1||chon6>3);
                             System.out.print("Mời bạn nhập giá trị: ");
                             value=scanner.nextFloat();
 
@@ -353,10 +375,13 @@ public class MainThiSinh {
                         FileInputStream fileInputStream = new FileInputStream("thisinh.txt");
                         ObjectInputStream fin = new ObjectInputStream(fileInputStream);
                         ArrayList<ThiSinhC> ListReadFromFile = (ArrayList<ThiSinhC>)fin.readObject();
-                        System.out.println("Ban co muon chen danh sach vua doc vao danh sach hien tai: ");
-                        System.out.println("1. Co");
-                        System.out.println("2. Khong");
-                        int chonAdd = scanner.nextInt();
+                        int chonAdd;
+                        do{
+                            System.out.println("Ban co muon chen danh sach vua doc vao danh sach hien tai: ");
+                            System.out.println("1. Co");
+                            System.out.println("2. Khong");
+                            chonAdd = scanner.nextInt();
+                        }while (chonAdd!=1 || chonAdd!=2);
                         if (chonAdd == 1) {
                             listThiSinh.addAll(ListReadFromFile);
                         } else {

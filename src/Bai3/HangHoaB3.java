@@ -2,20 +2,20 @@ package Bai3;
 
 import java.util.Scanner;
 
-public class HangHoa {
+public class HangHoaB3 {
     private String maHH;
     private String tenHang;
     private int soL;
     private float donG;
 
-    public HangHoa(String maHH, String tenHang, int soL, float donG) {
+    public HangHoaB3(String maHH, String tenHang, int soL, float donG) {
         this.maHH = maHH;
         this.tenHang = tenHang;
         this.soL = soL;
         this.donG = donG;
     }
 
-    public HangHoa() {
+    public HangHoaB3() {
     }
 
     public void setMaHH(String maHH) {

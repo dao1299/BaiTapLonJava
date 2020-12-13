@@ -1,20 +1,18 @@
 package Bai3;
 
-import javax.security.sasl.SaslClient;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class MainB3 {
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<HoaDon> listHD = new ArrayList<>();
+    static ArrayList<HoaDonB3> listHD = new ArrayList<>();
     public void case1(){
         System.out.println("Nhap so luong hoa don: ");
         int n=scanner.nextInt();
         for (int i=0;i<n;i++)
         {
-            HoaDon tempHD = new HoaDon();
+            HoaDonB3 tempHD = new HoaDonB3();
             tempHD.nhap();
             listHD.add(tempHD);
         }
@@ -25,7 +23,7 @@ public class MainB3 {
     }
     public void case3(){
         float sum=0;
-        for (HoaDon x:listHD){
+        for (HoaDonB3 x:listHD){
             sum+=x.tongTien();
         }
         System.out.println("Tong tien tat ca hoa don: "+sum);
@@ -34,7 +32,7 @@ public class MainB3 {
         float sum=0;
         System.out.println("Nhap phan tram chiet khau: ");
         float ck=scanner.nextFloat();
-        for (HoaDon x:listHD){
+        for (HoaDonB3 x:listHD){
             sum+=x.tongTien(ck);
         }
         System.out.println("Tong tien tat ca hoa don: "+sum);
